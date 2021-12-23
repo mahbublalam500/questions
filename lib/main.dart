@@ -7,15 +7,24 @@ void main()=>runApp(MaterialApp(
 class Home extends StatelessWidget {
   //const Home({Key? key}) : super(key: key);
 
+
+  var questionIndex = 1;
+
   void answerQuestion(){
     print('sakib khan');
+    //quentionIndex = quentionIndex + 1;
   }
 
-  var question = {
-  'Mojibor Shah',
-    'Kumar Shah',
-    'Siraj Uddin Doullah'
-  };
+
+
+  var question =[
+  'Tomar Bapre Name Ke?',
+    'Tomar Maer Name Ke?',
+    'Tomar Chacar Name Ke?',
+    'Tomar Fufar Name Ke?',
+  ];
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +35,14 @@ class Home extends StatelessWidget {
       body: Column(
 
         children: [
-          Text(question.elementAt(1)),
+          Text(question[questionIndex]),
           ElevatedButton(onPressed: answerQuestion,
               child: Text('Ansewer One')),
           ElevatedButton(onPressed: answerQuestion,
               child: Text('Answer Two')),
           ElevatedButton(onPressed: (){},
               child: Text('Answer Three')),
-          ElevatedButton(onPressed: (){},
+          ElevatedButton(onPressed: answerQuestion,
               child: Text('Answer Four'))
         ],
       ),
