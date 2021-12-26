@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'question.dart';
 
 void main()=>runApp(MaterialApp(
   home: Home(),
 ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   //const Home({Key? key}) : super(key: key);
 
 
-  var questionIndex = 1;
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  var questionIndex = 0;
 
   void answerQuestion(){
-    print('sakib khan');
-    //quentionIndex = quentionIndex + 1;
+setState(() {
+  questionIndex =  questionIndex + 1;
+});
+    print(questionIndex);
+    //questionIndex = questionIndex + 1;
   }
-
-
 
   var question =[
   'Tomar Bapre Name Ke?',
@@ -23,8 +30,6 @@ class Home extends StatelessWidget {
     'Tomar Chacar Name Ke?',
     'Tomar Fufar Name Ke?',
   ];
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class Home extends StatelessWidget {
       body: Column(
 
         children: [
-          Text(question[questionIndex]),
+          Question(question[questionIndex]),
           ElevatedButton(onPressed: answerQuestion,
               child: Text('Ansewer One')),
           ElevatedButton(onPressed: answerQuestion,
